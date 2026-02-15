@@ -69,7 +69,7 @@ public class PaymentController {
         }
         _logger.info("Getting payment with id: {}", id);
         return repository.findById(id)
-                .map(ResponseEntity::ok)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(Map.of("error", "Payment not found for id: " + id)));
     }
@@ -85,7 +85,7 @@ public class PaymentController {
         }
         _logger.info("Getting payment for order id: {}", orderId);
         return repository.findByOrderId(orderId)
-                .map(ResponseEntity::ok)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(Map.of("error", "Payment not found for order id: " + orderId)));
     }
