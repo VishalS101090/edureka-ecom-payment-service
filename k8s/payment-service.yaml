@@ -49,7 +49,7 @@ metadata:
 spec:
   selector:
     app: payment-service
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 5007
