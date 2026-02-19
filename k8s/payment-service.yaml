@@ -15,7 +15,7 @@ spec:
       containers:
         - name: payment-service
           image: vishal101090/payment-service:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: SERVER_PORT
               value: "5007"
