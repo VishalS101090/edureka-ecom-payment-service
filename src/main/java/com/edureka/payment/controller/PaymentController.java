@@ -22,6 +22,16 @@ public class PaymentController {
     private PaymentRepository repository;
 
     /**
+     * Get all payments.
+     * Returns 200 OK with list of all payments (empty list if none).
+     */
+    @GetMapping(value = {"", "/", "/all"})
+    public ResponseEntity<?> getAllPayments() {
+        _logger.info("Getting all payments");
+        return ResponseEntity.ok(repository.findAll());
+    }
+
+    /**
      * Create a new payment.
      * Returns 201 Created with the created payment, or 400 for validation errors.
      */
